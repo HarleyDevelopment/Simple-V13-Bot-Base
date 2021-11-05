@@ -1,0 +1,16 @@
+{
+  "name": "bot-base",
+  "version": "1.0.0",
+  "description": "A bot base made by Harley.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "HarleyDev - Harley - HD",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "discord.js": "^13.3.1",
+    "hyperz-nodelogger": "^3.7.2"
+  }
+}
