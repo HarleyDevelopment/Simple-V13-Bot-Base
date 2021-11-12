@@ -2,7 +2,7 @@
 This **Simple Base** is used for learning how to make a bot, creating a bot or simply saving you time whilst making a bot. 
 
 ## TOS
-When using please give credits of the base. 
+When using please give credits of the base. It doesn't need to be huge, just my name & discord invite somewhere within a credits command is completely fine.
 
 ## Credits
 - [Harley](https://discord.gg/tKy4tqyc3y) - Creating The Project
