@@ -10,6 +10,9 @@ const client = new Discord.Client({
 client.config = require('./config.js');
 const token = client.config.botToken;
 const prefix = client.config.botPrefix;
+const mysql = require('mysql');
+let useSQL = true;
+let con;
 const fs = require('fs');
 const eventFiles = fs.readdirSync('./events').filter(file => file.endsWith('.js'));
 
@@ -33,6 +36,31 @@ if (client.config.useEventHandler) {
             client.on(event.name, (...args) => event.execute(...args, client, Discord));
         }
     }
+}
+
+if(client.config.useMySQLDatabase){
+    const stuff = {
+    connectionLimit: 10,
+    queueLimit: 5000,
+    host: client.config.DBhost,
+    user: client.config.DBuser,
+    password: client.config.DBpassword,
+    database: client.config.DBdatabase,
+}
+con = mysql.createPool(stuff)
+setTimeout(() => {
+    console.log('MySQL Successfully Connected!')
+}, 4000);
+con.on('enqueue', function() {
+    if (client.config.debugmode) {
+        console.log(`${chalk.red('[SQL SERVER]:')} Waiting for available connection slot`);
+    }
+});
+con.on('release', function(connection) {
+    if (client.config.debugmode) {
+        console.log(`${chalk.red('[SQL SERVER]:')} Connection %d released`, connection.threadId);
+    }
+});
 }
 
 client.on('messageCreate', message => {
