@@ -21,7 +21,16 @@ const _config = {
     }],
 
     // Event Handler \\ 
-    useEventHandler: true
+    useEventHandler: true,
+    
+    // DATABASE \\
+    useMySQLDatabase: true,
+    
+    
+    DBhost: '',
+    DBuser: 'root',
+    DBpassword: '',
+    DBdatabase: 'exampleBot'
 }
 
 module.exports = _config;
