@@ -26,7 +26,6 @@ const _config = {
     // DATABASE \\
     useMySQLDatabase: true,
     
-    
     DBhost: '',
     DBuser: 'root',
     DBpassword: '',
